@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var a = () => console.log("This is function expression") // Function Expression
+
+        // Function Declaration
+         function b() {   
+         console.log("This is function Declaration ")      
+         }
+
+         // Function Invocation / Call / Execution
+         a()   
+         b()
+        
+         // Function Declaration with arguments
+        function c(arg1, arg2) {
+          console.log("arguments: ",arguments);
+         }
+         c("hello", "world");
+
+
+       //Hoisting - putting all variable and function declarations into memory during the compile phase.
+       //function expression and variables- hoisted as undefined 
+        var sample = "Hello World";
+        var sample1 = function() {
+           console.log("Hello");
+          };
+          
+       //function - fully hoisted
+        function sample2() {
+         console.log("Hello ");
+         }
+
+    </script>
+</body>
+</html>

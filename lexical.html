@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* JS run Execution context which is simply the environment
+         within which your code runs. There are 2 types of execution context -global or function. 
+         There are 2 phrase in each context-creation and executing phase. 
+         As the JavaScript engine starts to read thecode, it creates Global Execution Context.
+        
+          lexical environment: the scope or environment the engine is currently reading code in
+          a new lexical environment created using '{}'
+          lexical scope: available data + variables where function was defined
+          dynamic scope: where function is called 
+          First variable is searched in functional scope, if not found then searched in global scope
+          
+        */
+        function one() {
+        var isValid = true;  // local env
+        two();  // new execution context
+         }
+ 
+        function two() {
+        var isValid; // undefined
+         }
+
+        var isValid = false; // global
+        one();
+
+        let a = 10 
+        function check(){
+          console.log(a)
+          let a = 3
+          console.log(a)
+           }
+        check()
+    </script>
+</body>
+</html>

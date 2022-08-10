@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const Full_name=function(city){
+          console.log(this.Firstname+" "+this.Lastname +" is from "+ city);
+         }
+        let name1={
+        Firstname: "Merlin",
+        Lastname: "george",
+        }
+       
+       
+        let name2= {
+        Firstname: "Ritu",
+        Lastname: "K",
+         }
+
+        //Call(aka function borrowing) - method of an object that can substitute a different object than the one it is written on.
+         Full_name.call(name1,'Delhi'); 
+        //using apply 
+         Full_name.apply(name2,['Hyderabad']);
+          
+          
+        //bind-returns a new function that can then be called later.
+         let name3 = Full_name.bind(name1,'London');
+         name3()
+
+         
+
+    </script>
+</body>
+</html>
