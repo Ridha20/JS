@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //prototype is a property of a Function object
+        //__proto__ is used for accessing prototype/ property of an custom object,arrays or functions. 
+        //custom.__proto__===Object.prototype =>custon is object name
+        //Arrays also have inbuilt property (push,pop.etc) so they inherit from Array.prototype which inherits from Object.protype
+        //arr.__proto__===Array.prototype===Object.prototype =>Array.prototype.__proto__===Object.prototype
+        //Function.prototype.__proto__===Object.prototype
+        //custom.__proto__.__proto__ == Object.prototype
+
+
+        //Creating custom prototype Example 1
+
+        let Student={
+            score:50,
+            name:"Aditya",
+            sayHello(){
+                console.log(`Hello my name is ${this.name} and I scored  ${this.score}`)
+            }
+        }
+
+        let s1= Object.create(Student) 
+        let s2= Object.create(Student)
+        s1.sayHello()
+        s2.sayHello()
+
+        console.log(s1)  
+        console.log(s1.__proto__)
+        console.log(Student.__proto__)
+
+        s1.name="Rahul"
+        s2.name="Reeta"
+
+        s1.sayHello()
+        s2.sayHello()
+
+
+        //Creating custom prototype Example 2
+        let data = { native: "Salem",motherTongue : "Kannada"}
+        let grandParent = Object.create(data)
+        grandParent.name = "Jayapal"
+        grandParent.age = 77
+        
+        let parent = Object.create(grandParent)
+        parent.name = "Nagaraj"
+        parent.age = 52
+        
+        console.log(parent.__proto__.__proto__)
+        console.log(grandParent.__proto__)
+
+
+        //creating prototypes using prototype keyword 
+        function Person1(name, energy){
+            this.name = name,
+            this.energy = energy
+        }
+        
+        Person1.prototype.eating = function(energy){
+            console.log(`${this.name} is eating`)
+            this.energy = this.energy + energy
+        }
+        
+        Person1.prototype.coding = function(energy){
+            console.log(`${this.name} is coding`)
+            this.energy = this.energy - energy
+        }
+        
+        let p2 = new Person1("Saravana", 40)
+        console.log(p2)
+        console.log(Object.getPrototypeOf(p2))
+        
+
+        // create prototypes using setPrototype
+        let parents = {
+            name: 'parent name'
+        }
+        let child = Object.setPrototypeOf(
+            { name: "child name"},
+             parents )
+
+             console.log(child.__proto__)
+
+
+    </script>
+</body>
+</html>

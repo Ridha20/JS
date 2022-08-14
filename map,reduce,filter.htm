@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //map()- Map individial value and perform operations on it as per our wish
+        let names=['ridha','sajida','heena']
+        let capital_names= names.map((new_names)=>new_names.toUpperCase());
+        console.log(capital_names)
+        
+        //Example 2 using map iterate through list instead of using foreach
+        let data=[
+        {id:101, name:'Student 1'},
+        {id:101, name:'Student 2'},
+        {id:101, name:'Student 3'},
+        ];
+        let data_list= data.map((value=>value.name))
+        console.log(data_list)
+
+        //filter()- creates new array ,doesn't change original array.
+        //Help us filer easily as name suggests
+        let data1=[
+        {id:101, name:'Student 1',grade:'A'},
+        {id:101, name:'Student 2',grade:'B'},
+        {id:101, name:'Student 3',grade:"A"},
+        {id:101, name:'Student 4',grade:"C"},
+        {id:101, name:'Student 5',grade:"F"}
+        ];
+
+        let filter_studentA= data1.filter (function(student){
+           return student.grade==="A" 
+        })
+        //using fat arrow function
+        let filter_failed= data1.filter((failed_student)=>failed_student.grade==='F')
+
+         console.log("Students with A Grade ",filter_studentA)
+         console.log("Failed Students ",filter_failed)
+
+
+         //reduce() - Return single value and doesn't change original array.
+         const score=[100,,200,500]
+
+         var totalscore=score.reduce((res, val)=>res+val,0)//to initialise res=0 we use ,0 
+         console.log('Total score',totalscore)
+
+
+
+
+         //Using all 3 in one
+         let Student_data=[
+        {id:101, name:'Student 1',grade:'A',Mathmark:90,Sciencemark:85},
+        {id:101, name:'Student 2',grade:'B',Mathmark:80,Sciencemark:73},
+        {id:101, name:'Student 3',grade:"A",Mathmark:94,Sciencemark:95},
+        {id:101, name:'Student 4',grade:"C",Mathmark:60,Sciencemark:53},
+        {id:101, name:'Student 5',grade:"F",Mathmark:20,Sciencemark:30}
+        ];
+        const topper=Student_data.filter(stud=>stud.grade==='A')//find the topper
+        const totalmarks=topper.map(stud=> stud.Mathmark+stud.Sciencemark)
+        const totalStudent=totalmarks.reduce((acc,score)=>acc+score,0)
+        
+        console.log('Toppers',topper)
+        console.log('Students total marks',totalmarks)
+        console.log('Total Marks Scored by topper',totalStudent)
+
+
+
+    </script>
+</body>
+</html>
+
